@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-provider";
-import { LenisProvider } from "@/components/lenis-provider";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { LenisProvider } from "@/components/ui/lenis-provider";
 import { Borel, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 

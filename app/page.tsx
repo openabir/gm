@@ -6,7 +6,7 @@ import Team from "@/components/sections/Team";
 import WhyPartner from "@/components/sections/WhyPartner";
 import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/Footer";
-import LazySection from "@/components/LazySection";
+import LazySection from "@/components/ui/LazySection";
 
 export default function Home() {
   return (
