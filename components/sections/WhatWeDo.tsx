@@ -1,5 +1,6 @@
 "use client";
 import { ChevronRight } from "lucide-react";
+import StackedCards from "../others/StackedCards";
 
 export default function WhatWeDo() {
   return (
@@ -16,6 +17,8 @@ export default function WhatWeDo() {
           </p>
         </div>
 
+        <StackedCards />
+        
         <div className=" mt-20">
           <a href="/services" className="inline-block group">
             <p className="text-2xl transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110">
