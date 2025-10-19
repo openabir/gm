@@ -1,32 +1,52 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/sections/Hero";
-import WhatWeDo from "@/components/sections/WhatWeDo";
-import Results from "@/components/sections/Results";
-import Team from "@/components/sections/Team";
-import WhyPartner from "@/components/sections/WhyPartner";
-import FAQ from "@/components/sections/FAQ";
+"use client";
+import { useState } from "react";
+import Hero from "@/components/homepage/Hero";
+import Choose from "@/components/homepage/WhyChoose";
+import Integrations from "@/components/homepage/Integrations";
+import Solution from "@/components/homepage/Solution";
+import HowItWorks from "@/components/homepage/HowItWorks";
+import FAQ from "@/components/homepage/FAQ";
 import Footer from "@/components/Footer";
-import LazySection from "@/components/ui/LazySection";
+import { LazyLoad } from "@/components/ui/LazyLoad";
+import { StickyBanner } from "@/components/ui/sticky-banner";
+import ResizableNavbar from "@/components/ui/ResizableNavbar";
 
 export default function Home() {
+
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <StickyBanner
+        className="bg-gradient-to-r from-orange-500 to-orange-600"
+      >
+        <p className="text-sm md:text-base text-white font-medium">
+          🎉 Special Offer: Get 20% off on all digital marketing packages this
+          month!{" "}
+          <a
+            href="/services"
+            className="underline font-semibold hover:text-orange-100"
+          >
+            Learn More →
+          </a>
+        </p>
+      </StickyBanner>
+      <ResizableNavbar />
       <main>
         <Hero />
-        <WhatWeDo />
-        <LazySection>
-          <Results />
-        </LazySection>
-        <LazySection>
-          <Team />
-        </LazySection>
-        <LazySection>
-          <WhyPartner />
-        </LazySection>
-        <LazySection>
+        <LazyLoad>
+          <Choose />
+        </LazyLoad>
+        <LazyLoad>
+          <Integrations />
+        </LazyLoad>
+        <LazyLoad>
+          <Solution />
+        </LazyLoad>
+        <LazyLoad>
+          <HowItWorks />
+        </LazyLoad>
+        <LazyLoad>
           <FAQ />
-        </LazySection>
+        </LazyLoad>
       </main>
       <Footer />
     </div>

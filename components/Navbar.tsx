@@ -3,25 +3,44 @@
 import Image from "next/image";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
-export default function Navbar() {
+export default function Navbar({
+  isBannerVisible = true,
+}: {
+  isBannerVisible?: boolean;
+}) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
+    const scrollThreshold = 80; // Minimum scroll distance to trigger hide/show
+    const scrollDelta = 5; // Minimum delta to prevent jitter
 
-    if (currentScrollY < 10) {
-      setIsVisible(true);
-    } else if (currentScrollY > lastScrollY.current) {
-      setIsVisible(false);
-    } else {
-      setIsVisible(true);
+    // Clear any existing timeout
+    if (scrollTimeout.current) {
+      clearTimeout(scrollTimeout.current);
     }
 
-    lastScrollY.current = currentScrollY;
+    // Debounce the visibility change
+    scrollTimeout.current = setTimeout(() => {
+      if (currentScrollY < scrollThreshold) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY.current + scrollDelta) {
+        // Scrolling down with threshold
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY.current - scrollDelta) {
+        // Scrolling up with threshold
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    }, 50); // 50ms debounce
+
     ticking.current = false;
   }, []);
 
@@ -37,26 +56,28 @@ export default function Navbar() {
 
     return () => {
       window.removeEventListener("scroll", onScroll);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
     };
   }, [handleScroll]);
 
   const navLinks = [
     { href: "/services", label: "Services" },
     { href: "/works", label: "Works" },
+    { href: "/about", label: "About Us" },
   ];
 
   return (
     <>
       {/* Modern Minimal Navbar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-out backdrop-blur-md bg-background/80 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
+        style={{ top: isBannerVisible ? "56px" : "0px" }}
       >
         <div className="relative">
-          {/* Backdrop blur effect */}
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-xl" />
-
           {/* Content */}
           <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
@@ -75,7 +96,7 @@ export default function Navbar() {
               </a>
 
               {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center gap-10">
+              <div className="hidden md:flex items-center gap-10 bg-transparent">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
@@ -87,32 +108,27 @@ export default function Navbar() {
                   </a>
                 ))}
 
-                {/* Contact Button */}
-                <a
-                  href="#contact"
-                  className="px-6 py-2.5 bg-orange-600 text-white rounded-full hover:bg-orange-700 hover:shadow-lg hover:shadow-orange-600/30 transition-all duration-300 font-medium text-sm"
-                >
-                  Contact Us
-                </a>
+                {/* Theme Toggle */}
+                <ThemeToggle />
               </div>
 
               {/* Mobile Menu Button */}
-              <button
-                className="md:hidden p-2.5 rounded-full hover:bg-foreground/5 transition-colors"
-                aria-label="Toggle menu"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
-                {isMobileMenuOpen ? (
-                  <X className="w-5 h-5" />
-                ) : (
-                  <Menu className="w-5 h-5" />
-                )}
-              </button>
+              <div className="md:hidden flex items-center gap-2">
+                <ThemeToggle />
+                <button
+                  className="p-2.5 rounded-full hover:bg-foreground/5 transition-colors"
+                  aria-label="Toggle menu"
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
+                  {isMobileMenuOpen ? (
+                    <X className="w-5 h-5" />
+                  ) : (
+                    <Menu className="w-5 h-5" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
-
-          {/* Subtle bottom line */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
         </div>
       </nav>
 
@@ -139,15 +155,6 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-
-              {/* Mobile Contact Button */}
-              <a
-                href="#contact"
-                className="w-full mt-4 px-6 py-3.5 bg-orange-600 text-white rounded-2xl hover:bg-orange-700 hover:shadow-lg hover:shadow-orange-600/30 transition-all font-medium text-sm text-center block"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact Us
-              </a>
             </nav>
           </div>
         </div>
