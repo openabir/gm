@@ -54,7 +54,7 @@ export default function ProcessWorkflow() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16 sm:mb-20 md:mb-24 text-center space-y-4 sm:space-y-6">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-medium leading-tight">
             How we{" "}
             <span className="font-cursive text-orange-600">
               deliver results

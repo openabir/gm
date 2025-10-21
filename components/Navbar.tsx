@@ -218,7 +218,7 @@ export default function Navbar() {
                       className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg font-semibold rounded-full shadow-lg shadow-orange-500/30 border-none"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      Book an intro call
+                      Send us a Message
                     </Button>
                   </Link>
                 </motion.div>

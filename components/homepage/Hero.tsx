@@ -150,8 +150,8 @@ export default function Hero() {
                 </span>
                 <br />
                 <span className="relative inline-block mt-2">
-                  <span className="relative z-10 font-normal text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600">
-                    Amplified
+                  <span className="relative z-10 font-cursive font-normal text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600">
+                    our obsession
                   </span>
                   {/* Decorative underline */}
                   <motion.div

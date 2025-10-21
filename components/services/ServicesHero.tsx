@@ -49,19 +49,6 @@ export default function ServicesHero() {
           transition={{ duration: 0.8 }}
           className="space-y-6 sm:space-y-8"
         >
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block"
-          >
-            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs sm:text-sm font-medium">
-              <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
-              Award-Winning Digital Marketing Agency
-            </span>
-          </motion.div>
-
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
