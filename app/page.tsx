@@ -1,12 +1,10 @@
 import { Metadata } from "next";
+import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { StickyBanner } from "@/components/ui/sticky-banner";
-import ResizableNavbar from "@/components/ui/ResizableNavbar";
 import Hero from "@/components/homepage/Hero";
-import FeaturedServices from "@/components/homepage/FeaturedServices";
+import Why from "@/components/homepage/why";
 import AboutPreview from "@/components/homepage/AboutPreview";
 import ProcessWorkflow from "@/components/homepage/ProcessWorkflow";
-import HomeTestimonials from "@/components/homepage/HomeTestimonials";
 import ToolsTechnologies from "@/components/homepage/ToolsTechnologies";
 import HomeCTA from "@/components/homepage/HomeCTA";
 
@@ -27,25 +25,12 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <StickyBanner className="bg-gradient-to-r from-orange-500 to-orange-600">
-        <p className="text-sm md:text-base text-white font-medium">
-          🎉 Special Offer: Get 20% off on all digital marketing packages this
-          month!{" "}
-          <a
-            href="/services"
-            className="underline font-semibold hover:text-orange-100"
-          >
-            Learn More →
-          </a>
-        </p>
-      </StickyBanner>
-      <ResizableNavbar />
+      <Navbar />
       <main>
         <Hero />
-        <FeaturedServices />
+        <Why />
         <AboutPreview />
         <ProcessWorkflow />
-        <HomeTestimonials />
         <ToolsTechnologies />
         <HomeCTA />
       </main>

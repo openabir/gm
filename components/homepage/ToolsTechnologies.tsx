@@ -1,106 +1,152 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import Image from "next/image";
 
 const tools = [
-  { name: "Google Analytics", category: "Analytics" },
-  { name: "Google Ads", category: "Advertising" },
-  { name: "Facebook Ads", category: "Social Media" },
-  { name: "HubSpot", category: "Marketing Automation" },
-  { name: "SEMrush", category: "SEO" },
-  { name: "Mailchimp", category: "Email Marketing" },
-  { name: "WordPress", category: "CMS" },
-  { name: "Shopify", category: "E-commerce" },
-  { name: "Figma", category: "Design" },
-  { name: "Adobe Creative Suite", category: "Design" },
-  { name: "Hotjar", category: "UX Analytics" },
-  { name: "Zapier", category: "Automation" },
+  {
+    name: "Google Analytics",
+    category: "Analytics",
+    icon: "/tools/google-analytics-svgrepo-com.svg",
+  },
+  {
+    name: "Google Ads",
+    category: "Advertising",
+    icon: "/tools/google-ads-svgrepo-com.svg",
+  },
+  {
+    name: "Meta Ads",
+    category: "Social Media",
+    icon: "/tools/meta-svgrepo-com.svg",
+  },
+  {
+    name: "HubSpot",
+    category: "Marketing Automation",
+    icon: "/tools/hubspot-svgrepo-com.svg",
+  },
+  { name: "SEMrush", category: "SEO", icon: "/tools/Semrush-svgrepo-com.svg" },
+  {
+    name: "Mailchimp",
+    category: "Email Marketing",
+    icon: "/tools/mailchimp-svgrepo-com.svg",
+  },
+  {
+    name: "WordPress",
+    category: "CMS",
+    icon: "/tools/wordpress-color-svgrepo-com.svg",
+  },
+  {
+    name: "Shopify",
+    category: "E-commerce",
+    icon: "/tools/shopify-svgrepo-com.svg",
+  },
+  { name: "Figma", category: "Design", icon: "/tools/figma-svgrepo-com.svg" },
+  {
+    name: "Adobe Creative Cloud",
+    category: "Design",
+    icon: "/tools/adobe-creative-cloud-svgrepo-com.svg",
+  },
+  {
+    name: "Hotjar",
+    category: "UX Analytics",
+    icon: "/tools/hotjar-svgrepo-com.svg",
+  },
+  {
+    name: "Zapier",
+    category: "Automation",
+    icon: "/tools/zapier-svgrepo-com.svg",
+  },
+  {
+    name: "Notion",
+    category: "Productivity",
+    icon: "/tools/notion-svgrepo-com.svg",
+  },
 ];
 
 export default function ToolsTechnologies() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  // Duplicate tools array for seamless infinite scroll
+  const duplicatedTools = [...tools, ...tools, ...tools];
 
   return (
-    <section
-      className="py-20 lg:py-28 bg-gray-50 dark:bg-gray-900/50"
-      ref={ref}
-    >
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16 md:mb-20 space-y-4 sm:space-y-6"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
             Powered by Industry-Leading{" "}
             <span className="text-orange-600">Tools</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             We leverage the best platforms and technologies to keep you ahead of
             the competition
           </p>
         </motion.div>
 
-        {/* Tools Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-        >
-          {tools.map((tool, index) => (
+        {/* Infinite Scroll Container */}
+        <div className="relative">
+          {/* Gradient Blur Overlays */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-32 md:w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-32 md:w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+          {/* Scrolling Track */}
+          <div className="flex overflow-hidden">
             <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="group relative bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 hover:shadow-lg transition-all duration-300"
+              className="flex gap-6 sm:gap-8 md:gap-12"
+              animate={{
+                x: [0, -(160 * tools.length)],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 60,
+                  ease: "linear",
+                },
+              }}
             >
-              <div className="text-center space-y-2">
-                {/* Icon Placeholder */}
-                <div className="w-12 h-12 mx-auto rounded-lg bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg
-                    className="w-6 h-6 text-orange-600 dark:text-orange-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
+              {duplicatedTools.map((tool, index) => (
+                <div
+                  key={`${tool.name}-${index}`}
+                  className="flex-shrink-0 group"
+                >
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex items-center justify-center p-3 sm:p-4 md:p-6">
+                    <Image
+                      src={tool.icon}
+                      alt={tool.name}
+                      fill
+                      className="object-contain p-3 sm:p-4 md:p-6"
+                      sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, 128px"
                     />
-                  </svg>
+                  </div>
+
+                  {/* Tool Info */}
+                  <div className="text-center mt-2 sm:mt-3 space-y-1">
+                    <p className="text-xs sm:text-sm font-semibold">
+                      {tool.name}
+                    </p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground">
+                      {tool.category}
+                    </p>
+                  </div>
                 </div>
-
-                {/* Tool Name */}
-                <h4 className="font-semibold text-sm text-gray-900 dark:text-white">
-                  {tool.name}
-                </h4>
-
-                {/* Category */}
-                <p className="text-xs text-muted-foreground">{tool.category}</p>
-              </div>
-
-              {/* Hover Glow */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-orange-500/0 to-orange-600/0 group-hover:from-orange-500/5 group-hover:to-orange-600/5 transition-all duration-300 pointer-events-none" />
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
+          </div>
+        </div>
 
         {/* Bottom Text */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center text-muted-foreground mt-12"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center text-sm sm:text-base text-muted-foreground mt-8 sm:mt-12"
         >
           And many more tools tailored to your specific needs
         </motion.p>

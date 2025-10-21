@@ -1,0 +1,361 @@
+﻿"use client";
+
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+
+export default function Why() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  const items = [
+    {
+      title: "Strategic Growth Solutions",
+      description:
+        "We create long-term, KPI-driven marketing strategies that align with your business goals and drive sustainable growth.",
+      icon: (
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 46 46"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M27 27H19V45H27V27Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M9 37H1V45H9V37Z"
+            fill="currentColor"
+            fillOpacity="0.2"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M45 17H37V45H45V17Z"
+            fill="currentColor"
+            fillOpacity="0.2"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M5 17L15 7L23 15L37 1"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M28 1H37V10"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "Full-Funnel Marketing",
+      description:
+        "We manage campaigns across every stage of the customer journey to ensure consistent engagement and maximum conversions.",
+      icon: (
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 46 46"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M45 29V23C45 10.85 35.15 1 23 1C10.85 1 1 10.85 1 23V29"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M13 29H1V41C1 43.209 2.791 45 5 45H13V29Z"
+            fill="currentColor"
+            fillOpacity="0.2"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M45 29H33V45H41C43.209 45 45 43.209 45 41V29Z"
+            fill="currentColor"
+            fillOpacity="0.2"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "Omnichannel Execution",
+      description:
+        "We deliver unified, consistent brand experiences across all digital channels for amplified impact.",
+      icon: (
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 46 46"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.66667 25H6C3.23858 25 1 27.2386 1 30V37C1 39.7614 3.23858 42 6 42H36C38.7614 42 41 39.7614 41 37V30C41 27.2386 38.7614 25 36 25H31.8333C30.2685 25 29 26.2685 29 27.8333C29 29.3981 27.7315 30.6667 26.1667 30.6667H15.3333C13.7685 30.6667 12.5 29.3981 12.5 27.8333C12.5 26.2685 11.2315 25 9.66667 25Z"
+            fill="currentColor"
+            fillOpacity="0.2"
+          />
+          <path
+            d="M9 9H33"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M9 17H33"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M1 25H13V31H29V25H41"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M37 1H5C2.79086 1 1 2.79086 1 5V37C1 39.2091 2.79086 41 5 41H37C39.2091 41 41 39.2091 41 37V5C41 2.79086 39.2091 1 37 1Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "Analytics-Driven Decision Making",
+      description:
+        "We use real-time data, predictive insights, and performance analytics to guide every marketing decision.",
+      icon: (
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 46 46"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M41 1H1V41H41V1Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M18 7H7V20H18V7Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M18 26H7V35H18V26Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M35 7H24V35H35V7Z"
+            fill="currentColor"
+            fillOpacity="0.2"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "Create Design That Drive Action",
+      description:
+        "We create visuals that captivate your audience and compel them to act, turning passive scrollers into active customers.",
+      icon: (
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 46 46"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M30.562 18.4609C30.0511 17.9392 29.4292 17.5392 28.7426 17.2907C28.0559 17.0422 27.3221 16.9516 26.5956 17.0256C25.8692 17.0996 25.1687 17.3362 24.5462 17.718C23.9237 18.0998 23.3952 18.6169 23 19.2309C22.6049 18.6167 22.0764 18.0995 21.4539 17.7176C20.8315 17.3357 20.1309 17.099 19.4044 17.025C18.6779 16.951 17.944 17.0417 17.2573 17.2903C16.5706 17.5389 15.9488 17.939 15.438 18.4609C14.5163 19.4035 14.0002 20.6695 14.0002 21.9879C14.0002 23.3063 14.5163 24.5722 15.438 25.5149L23 33.1999L30.564 25.5159C31.485 24.5726 32.0004 23.3064 32 21.988C31.9997 20.6696 31.4835 19.4037 30.562 18.4609Z"
+            fill="currentColor"
+            fillOpacity="0.2"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M41 41H5C3.93913 41 2.92172 40.5786 2.17157 39.8284C1.42143 39.0783 1 38.0609 1 37V1H17L22 9H45V37C45 38.0609 44.5786 39.0783 43.8284 39.8284C43.0783 40.5786 42.0609 41 41 41Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "Agile Growth Experimentation",
+      description:
+        "We drive continuous improvement through structured testing, rapid iteration, and data-backed optimization.",
+      icon: (
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 46 46"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M25 7C34.941 7 43 15.059 43 25C43 34.941 34.941 43 25 43C15.059 43 7 34.941 7 25"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M19 1C9.059 1 1 9.059 1 19H19V1Z"
+            fill="currentColor"
+            fillOpacity="0.2"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+  ];
+
+  return (
+    <section
+      className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28"
+      ref={ref}
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16 md:mb-20 space-y-4 sm:space-y-6"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight"
+          >
+            Why Partner{" "}
+            <span className="font-cursive text-orange-600">with us?</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+          >
+            We combine strategy, creativity, and data to deliver marketing that
+            drives real business growth
+          </motion.p>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
+          {items.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="group text-center p-6 sm:p-8 rounded-2xl hover:bg-orange-50/50 dark:hover:bg-orange-950/10 transition-colors duration-300"
+            >
+              {/* Icon */}
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : {}}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.5 + index * 0.1,
+                  type: "spring",
+                  stiffness: 200,
+                }}
+                className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-6 sm:mb-8 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform duration-300"
+              >
+                {item.icon}
+              </motion.div>
+
+              {/* Title */}
+              <motion.h3
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                className="text-lg sm:text-xl font-bold mb-4"
+              >
+                {item.title}
+              </motion.h3>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                className="text-sm sm:text-base text-muted-foreground leading-relaxed"
+              >
+                {item.description}
+              </motion.p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

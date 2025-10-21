@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
+import { CircleCheckBig } from "lucide-react";
 import { useRef } from "react";
+import Image from "next/image";
 
 const processes = [
   {
@@ -15,21 +17,7 @@ const processes = [
       "Audience research and persona development",
       "Strategic roadmap with clear KPIs",
     ],
-    icon: (
-      <svg
-        className="w-12 h-12"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-        />
-      </svg>
-    ),
+    image: "/process/Discovery.svg",
     reverse: false,
   },
   {
@@ -42,21 +30,7 @@ const processes = [
       "Creative content and design production",
       "Real-time performance monitoring",
     ],
-    icon: (
-      <svg
-        className="w-12 h-12"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M13 10V3L4 14h7v7l9-11h-7z"
-        />
-      </svg>
-    ),
+    image: "/process/Optmize-pana.svg",
     reverse: true,
   },
   {
@@ -69,41 +43,30 @@ const processes = [
       "Transparent reporting and insights",
       "Dedicated account management",
     ],
-    icon: (
-      <svg
-        className="w-12 h-12"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-        />
-      </svg>
-    ),
+    image: "/process/Growth-pana.svg",
     reverse: false,
   },
 ];
 
 export default function ProcessWorkflow() {
   return (
-    <section className="py-20 lg:py-28 bg-gray-50 dark:bg-gray-900/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            How We <span className="text-orange-600">Deliver Results</span>
+        <div className="mb-16 sm:mb-20 md:mb-24 text-center space-y-4 sm:space-y-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
+            How we{" "}
+            <span className="font-cursive text-orange-600">
+              deliver results
+            </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mx-auto max-w-3xl">
             Our proven three-step process for driving measurable growth
           </p>
         </div>
 
         {/* Process Items */}
-        <div className="space-y-32">
+        <div className="space-y-20 sm:space-y-24 md:space-y-28 lg:space-y-32">
           {processes.map((process) => (
             <ProcessItem
               key={process.id}
@@ -133,21 +96,21 @@ function ProcessItem({
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
+      className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center ${
         reverse ? "lg:flex-row-reverse" : ""
       }`}
     >
       {/* Text Content */}
-      <div className={`space-y-6 ${reverse ? "lg:order-2" : ""}`}>
+      <div className={`space-y-6 sm:space-y-8 ${reverse ? "lg:order-2" : ""}`}>
         <motion.div
           initial={{ opacity: 0, x: reverse ? 50 : -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6">
             {process.name}
           </h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
             {process.description}
           </p>
         </motion.div>
@@ -157,7 +120,7 @@ function ProcessItem({
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="space-y-4"
+          className="space-y-3 sm:space-y-4"
         >
           {process.benefits.map((benefit, index) => (
             <motion.li
@@ -167,53 +130,35 @@ function ProcessItem({
               transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
               className="flex items-start gap-3"
             >
-              <svg
-                className="w-6 h-6 text-orange-600 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="text-base text-gray-700 dark:text-gray-300">
-                {benefit}
-              </span>
+              <CircleCheckBig className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-orange-500 mt-0.5" />
+              <span className="text-sm sm:text-base">{benefit}</span>
             </motion.li>
           ))}
         </motion.ul>
       </div>
 
-      {/* Icon/Visual */}
+      {/* SVG Visual - Clean & Responsive */}
       <motion.div
         initial={{ opacity: 0, x: reverse ? -50 : 50 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.3 }}
         className={`relative ${reverse ? "lg:order-1" : ""}`}
       >
-        <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/20 dark:to-orange-800/10 shadow-2xl">
-          {/* Icon Display */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center p-8">
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-orange-500/30 to-orange-600/30 flex items-center justify-center">
-                <div className="text-orange-600 dark:text-orange-400">
-                  {process.icon}
-                </div>
-              </div>
-              <div className="text-2xl font-bold text-gray-800 dark:text-gray-200">
-                Step {process.id}
-              </div>
-            </div>
+        {/* SVG Image - No background, just the image */}
+        <div className="relative w-full">
+          <div className="relative w-full aspect-square max-w-md mx-auto">
+            <Image
+              src={process.image}
+              alt={process.name}
+              fill
+              className="object-contain drop-shadow-2xl"
+              priority={process.id === 1}
+            />
           </div>
+          {/* Decorative Elements */}
+          <div className="absolute -z-10 top-4 sm:top-8 -right-4 sm:-right-8 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-orange-500/10 rounded-full blur-3xl" />
+          <div className="absolute -z-10 -bottom-4 sm:-bottom-8 -left-4 sm:-left-8 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-orange-600/10 rounded-full blur-3xl" />
         </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute -z-10 top-8 -right-8 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl" />
-        <div className="absolute -z-10 -bottom-8 -left-8 w-72 h-72 bg-orange-600/10 rounded-full blur-3xl" />
       </motion.div>
     </motion.div>
   );

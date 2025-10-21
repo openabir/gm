@@ -2,48 +2,27 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { CircleCheck } from "lucide-react";
 import Link from "next/link";
 
 export default function HomeCTA() {
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden">
+    <section className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32">
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-orange-900/20 to-gray-900">
+      <div className="absolute inset-0">
         {/* Animated Orbs */}
-        <motion.div
-          className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-600/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.5, 0.3, 0.5],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <div className="absolute top-0 sm:top-10 md:top-20 lg:top-30 left-1/4 sm:left-1/3 w-48 h-48 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-orange-600/50 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-orange-600/50 rounded-full blur-3xl" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="space-y-6 sm:space-y-8"
         >
           {/* Badge */}
           <motion.div
@@ -53,9 +32,9 @@ export default function HomeCTA() {
             transition={{ delay: 0.2 }}
             className="inline-block"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 text-orange-300 text-sm font-medium">
+            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 text-orange-900 dark:text-orange-300 text-xs sm:text-sm font-medium">
               <svg
-                className="w-4 h-4"
+                className="w-3 h-3 sm:w-4 sm:h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -77,7 +56,7 @@ export default function HomeCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight"
           >
             Let&apos;s Create Something
             <br />
@@ -92,7 +71,7 @@ export default function HomeCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="text-xl text-gray-300 max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground"
           >
             Ready to amplify your growth? Book a free strategy call and discover
             how we can help you achieve your business goals.
@@ -109,12 +88,12 @@ export default function HomeCTA() {
             <Link href="/contact">
               <Button
                 size="lg"
-                className="relative group bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 px-8 py-6 text-lg overflow-hidden"
+                className="relative group bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg overflow-hidden w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Get Started Now
                   <svg
-                    className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -131,34 +110,6 @@ export default function HomeCTA() {
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
               </Button>
             </Link>
-            <Link href="/services">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-orange-500/50 hover:border-orange-500 hover:bg-orange-500/10 px-8 py-6 text-lg backdrop-blur-sm text-white"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                  />
-                </svg>
-                View Our Work
-              </Button>
-            </Link>
           </motion.div>
 
           {/* Trust Indicators */}
@@ -167,53 +118,26 @@ export default function HomeCTA() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.7 }}
-            className="flex flex-wrap justify-center gap-6 pt-8 text-sm text-gray-400"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 pt-6 sm:pt-8 text-xs sm:text-sm"
           >
             <div className="flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-orange-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <CircleCheck className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500 flex-shrink-0" />
               <span>Free 30-minute consultation</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-orange-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <CircleCheck className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500 flex-shrink-0" />
               <span>No credit card required</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-orange-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <CircleCheck className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500 flex-shrink-0" />
               <span>Results-driven approach</span>
             </div>
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Bottom Fade Gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 md:h-24 lg:h-30 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
     </section>
   );
 }
