@@ -1,7 +1,8 @@
 "use client";
+
 import Image from "next/image";
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
 interface TeamMember {
@@ -37,25 +38,25 @@ export default function Team() {
 
   return (
     <section className="py-20 md:py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="text-center mb-16 space-y-4"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-normal mb-4">
-            Who we <span className="font-cursive text-orange-600">are</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            Meet the <span className="text-orange-600">Team</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl">
-            Meet the minds behind the mission
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            The talented people behind our success
           </p>
         </motion.div>
 
-        {/* Team Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Team Cards Grid - 2 members centered */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
@@ -63,11 +64,11 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -8, scale: 1.02 }}
               onClick={() => setSelectedMember(member)}
               className="group cursor-pointer"
             >
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 p-8 h-full border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:border-orange-500/50 hover:shadow-xl hover:shadow-orange-500/10">
+              <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 p-8 h-full border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300">
                 {/* Background Gradient Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:to-orange-500/10 transition-all duration-500" />
 
