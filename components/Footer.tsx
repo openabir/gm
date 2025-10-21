@@ -1,5 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 // Types
 interface FooterLink {
@@ -39,15 +44,10 @@ const NAVIGATION_LINKS: FooterSection = {
 const CONTACT_INFO: ContactItem[] = [
   {
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+91 98635 12125",
+    href: "tel:+91986512125",
     icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -59,15 +59,10 @@ const CONTACT_INFO: ContactItem[] = [
   },
   {
     label: "Email",
-    value: "info@growthmarg.com",
-    href: "mailto:info@growthmarg.com",
+    value: "growthmarg@gmail.com",
+    href: "mailto:growthmarg@gmail.com",
     icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -79,14 +74,9 @@ const CONTACT_INFO: ContactItem[] = [
   },
   {
     label: "Address",
-    value: "123 Business Street, Suite 100, City, State 12345",
+    value: "East Badarghat, Agartala, Tripura 799003",
     icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -106,7 +96,7 @@ const CONTACT_INFO: ContactItem[] = [
 
 const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: "/",
+    href: "https://twitter.com/growthmarg",
     label: "Twitter",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
@@ -115,7 +105,7 @@ const SOCIAL_LINKS: SocialLink[] = [
     ),
   },
   {
-    href: "/",
+    href: "https://www.instagram.com/growthmarg.in/",
     label: "Instagram",
     icon: (
       <svg viewBox="0 0 30 30" fill="currentColor" className="h-6">
@@ -125,7 +115,7 @@ const SOCIAL_LINKS: SocialLink[] = [
     ),
   },
   {
-    href: "/",
+    href: "https://www.facebook.com/growthmarg",
     label: "Facebook",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
@@ -144,95 +134,179 @@ const COMPANY_INFO = {
 
 // MapBox Configuration
 const MAPBOX_CONFIG = {
-  latitude: 40.7128,
-  longitude: -74.006,
+  latitude: 23.823595,
+  longitude: 91.271521,
   zoom: 10,
 };
 
 // Sub-components
-const CompanyLogo = () => (
-  <Link
-    href="/"
-    aria-label="Go home"
-    title={COMPANY_INFO.name}
-    className="inline-flex items-center group"
-  >
-    <span className="text-2xl font-bold tracking-wide group-hover:text-primary-light transition-colors duration-300">
-      {COMPANY_INFO.name}
-    </span>
-  </Link>
-);
+const CompanyLogo = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-const FooterLinkSection = ({ title, links }: FooterSection) => (
-  <div>
-    <h3 className="font-semibold tracking-wide text-lg mb-4">{title}</h3>
-    <ul className="space-y-3">
-      {links.map((link) => (
-        <li key={link.label}>
-          <Link href={link.href}>{link.label}</Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const ContactSection = () => (
-  <div>
-    <h3 className="font-semibold tracking-wide text-lg mb-4">Contact Us</h3>
-    <ul className="space-y-3">
-      {CONTACT_INFO.map((contact) => (
-        <li key={contact.label} className="flex items-start gap-3">
-          <span className="text-primary-light mt-1">{contact.icon}</span>
-          <div className="flex-1">
-            {contact.href ? (
-              <a
-                href={contact.href}
-                className="hover:text-primary-light transition-colors duration-300 text-sm"
-              >
-                {contact.value}
-              </a>
-            ) : (
-              <span className="text-sm">{contact.value}</span>
-            )}
-          </div>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const MapSection = () => (
-  <div>
-    <h3 className="font-semibold tracking-wide text-lg mb-4">Our Location</h3>
-    <div className="relative w-full h-64 rounded-lg overflow-hidden">
-      <iframe
-        width="100%"
-        height="100%"
-        frameBorder="0"
-        style={{ border: 0 }}
-        src={`https://www.openstreetmap.org/export/embed.html?bbox=${
-          MAPBOX_CONFIG.longitude - 0.01
-        }%2C${MAPBOX_CONFIG.latitude - 0.01}%2C${
-          MAPBOX_CONFIG.longitude + 0.01
-        }%2C${MAPBOX_CONFIG.latitude + 0.01}&layer=mapnik&marker=${
-          MAPBOX_CONFIG.latitude
-        }%2C${MAPBOX_CONFIG.longitude}`}
-        title="GrowthMarg Location"
-        className="grayscale hover:grayscale-0 transition-all duration-300"
-      />
-    </div>
-  </div>
-);
-
-const SocialLinks = () => (
-  <div className="flex items-center mt-4 space-x-4 sm:mt-0">
-    {SOCIAL_LINKS.map((social) => (
-      <Link key={social.label} href={social.href} aria-label={social.label}>
-        {social.icon}
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6 }}
+    >
+      <Link
+        href="/"
+        aria-label="Go home"
+        title={COMPANY_INFO.name}
+        className="inline-flex items-center group"
+      >
+        <span className="text-3xl font-bold tracking-wide group-hover:text-primary-light transition-colors duration-300">
+          {COMPANY_INFO.name}
+        </span>
       </Link>
-    ))}
-  </div>
-);
+    </motion.div>
+  );
+};
+
+const FooterLinkSection = ({ title, links }: FooterSection) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.1 }}
+    >
+      <h3 className="font-semibold tracking-wide text-2xl mb-4">{title}</h3>
+      <ul className="space-y-3 text-xl">
+        {links.map((link, index) => (
+          <motion.li
+            key={link.label}
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+          >
+            <Link
+              href={link.href}
+              className="hover:text-orange-300 transition-colors duration-300"
+            >
+              {link.label}
+            </Link>
+          </motion.li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+};
+
+const ContactSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.2 }}
+    >
+      <h3 className="font-semibold tracking-wide text-2xl mb-4">Contact Us</h3>
+      <ul className="space-y-3">
+        {CONTACT_INFO.map((contact, index) => (
+          <motion.li
+            key={contact.label}
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+            className="flex items-start gap-3"
+          >
+            <span className="text-primary-light mt-1">{contact.icon}</span>
+            <div className="flex-1">
+              {contact.href ? (
+                <a
+                  href={contact.href}
+                  className="hover:text-white transition-colors duration-300 text-xl"
+                >
+                  {contact.value}
+                </a>
+              ) : (
+                <span className="text-xl">{contact.value}</span>
+              )}
+            </div>
+          </motion.li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+};
+
+const MapSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.3 }}
+    >
+      <h3 className="font-semibold tracking-wide text-2xl mb-4">
+        Our Location
+      </h3>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="relative w-full h-64 rounded-lg overflow-hidden"
+      >
+        <iframe
+          width="100%"
+          height="100%"
+          frameBorder="0"
+          style={{ border: 0 }}
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${
+            MAPBOX_CONFIG.longitude - 0.01
+          }%2C${MAPBOX_CONFIG.latitude - 0.01}%2C${
+            MAPBOX_CONFIG.longitude + 0.01
+          }%2C${MAPBOX_CONFIG.latitude + 0.01}&layer=mapnik&marker=${
+            MAPBOX_CONFIG.latitude
+          }%2C${MAPBOX_CONFIG.longitude}`}
+          title="GrowthMarg Location"
+          className="grayscale hover:grayscale-0 transition-all duration-300"
+        />
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const SocialLinks = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  return (
+    <div className="flex items-center mt-4 space-x-4 sm:mt-0">
+      {SOCIAL_LINKS.map((social, index) => (
+        <motion.div
+          key={social.label}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.4, delay: index * 0.1 }}
+          whileHover={{ scale: 1.2, rotate: 5 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <Link
+            ref={index === 0 ? ref : undefined}
+            href={social.href}
+            aria-label={social.label}
+            className="hover:text-orange-300 transition-colors duration-300"
+          >
+            {social.icon}
+          </Link>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
 
 const WaveDivider = () => (
   <svg
@@ -247,21 +321,39 @@ const WaveDivider = () => (
   </svg>
 ); // Main component
 export const Footer = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
   return (
     <>
-      <footer className="relative mt-16 bg-orange-500">
+      <footer className="relative mt-16 bg-orange-500" ref={ref}>
         <WaveDivider />
 
-        <div className="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8 }}
+          className="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+        >
           {/* Main Footer Content */}
           <div className="grid gap-8 mb-8 md:grid-cols-2 lg:grid-cols-4">
             {/* Company Info Section */}
-            <div className="md:max-w-md">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="md:max-w-md"
+            >
               <CompanyLogo />
-              <p className="mt-4 text-sm leading-relaxed">
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-4 text-lg leading-relaxed"
+              >
                 {COMPANY_INFO.description}
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
 
             {/* Navigation Links */}
             <FooterLinkSection {...NAVIGATION_LINKS} />
@@ -274,23 +366,33 @@ export const Footer = () => {
           </div>
 
           {/* Bottom Bar */}
-          <div className="flex flex-col justify-between py-5 border-y border-gray-800 sm:flex-row items-center gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col justify-between py-5 border-y border-gray-800 sm:flex-row items-center gap-4"
+          >
             <p className="text-sm">{COMPANY_INFO.copyright}</p>
             <SocialLinks />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </footer>
 
       {/* Full Width Logo Section */}
-      <div className="w-full bg-orange-500 pt-10 overflow-hidden flex items-center justify-center">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className="w-full bg-orange-500 pt-10 overflow-hidden flex items-center justify-center"
+      >
         <Image
-          src="/logo.svg"
+          src="/Vector.svg"
           width={1200}
           height={100}
           alt="GrowthMarg Logo"
           className="w-full max-w-screen-xl -mb-20"
         />
-      </div>
+      </motion.div>
     </>
   );
 };
