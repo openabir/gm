@@ -39,26 +39,29 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section className="py-20 lg:py-28" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28"
+      ref={ref}
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-14 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             Client Success Stories
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Don&apos;t just take our word for it — hear from businesses
             we&apos;ve helped grow
           </p>
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -67,11 +70,11 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="group relative"
             >
-              <div className="relative bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div className="relative bg-white dark:bg-gray-900 rounded-2xl p-6 sm:p-7 md:p-8 border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                 {/* Quote Icon */}
-                <div className="mb-6">
+                <div className="mb-4 sm:mb-5 md:mb-6">
                   <svg
-                    className="w-10 h-10 text-orange-500/30"
+                    className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-orange-500/30"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -80,20 +83,20 @@ export default function Testimonials() {
                 </div>
 
                 {/* Quote */}
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 flex-grow">
+                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4 sm:mb-5 md:mb-6 flex-grow">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 pt-6 border-t border-gray-200 dark:border-gray-800">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white font-bold text-lg">
+                <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-5 md:pt-6 border-t border-gray-200 dark:border-gray-800">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white font-bold text-base sm:text-lg">
                     {testimonial.author.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900 dark:text-white">
+                    <p className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">
                       {testimonial.author}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       {testimonial.position}, {testimonial.company}
                     </p>
                   </div>

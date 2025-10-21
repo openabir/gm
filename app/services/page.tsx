@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Footer } from "@/components/Footer";
-import ResizableNavbar from "@/components/ui/ResizableNavbar";
+import Navbar from "@/components/Navbar";
 import ServicesHero from "@/components/services/ServicesHero";
 import ServiceOverviewGrid from "@/components/services/ServiceOverviewGrid";
 import DetailedServices from "@/components/services/DetailedServices";
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="min-h-screen">
-      <ResizableNavbar />
+      <Navbar />
       <main>
         <ServicesHero />
         <ServiceOverviewGrid />

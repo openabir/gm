@@ -1,12 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Star } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function ServicesHero() {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-orange-100/30 dark:from-gray-900 dark:via-gray-800 dark:to-orange-900/10">
         {/* Animated Grid */}
@@ -14,7 +16,7 @@ export default function ServicesHero() {
 
         {/* Floating Orbs */}
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-orange-400/20 rounded-full blur-3xl"
+          className="absolute top-10 sm:top-20 left-4 sm:left-10 w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-orange-400/20 rounded-full blur-3xl"
           animate={{
             y: [0, 30, 0],
             x: [0, 20, 0],
@@ -26,7 +28,7 @@ export default function ServicesHero() {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"
+          className="absolute bottom-10 sm:bottom-20 right-4 sm:right-10 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-orange-500/10 rounded-full blur-3xl"
           animate={{
             y: [0, -40, 0],
             x: [0, -30, 0],
@@ -40,12 +42,12 @@ export default function ServicesHero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="space-y-6 sm:space-y-8"
         >
           {/* Badge */}
           <motion.div
@@ -54,10 +56,8 @@ export default function ServicesHero() {
             transition={{ delay: 0.2 }}
             className="inline-block"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-sm font-medium">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
+            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs sm:text-sm font-medium">
+              <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
               Award-Winning Digital Marketing Agency
             </span>
           </motion.div>
@@ -67,7 +67,7 @@ export default function ServicesHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
           >
             Digital Marketing Solutions
             <br />
@@ -81,7 +81,7 @@ export default function ServicesHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
             From SEO to full-funnel marketing, we help brands reach, engage, and
             convert their ideal audience.
@@ -92,16 +92,16 @@ export default function ServicesHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-2 sm:pt-4"
           >
-            <Link href="/contact">
+            <Link href="/contact" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-8 py-6 text-lg group"
+                className="w-full sm:w-auto bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg group"
               >
                 Get a Free Strategy Call
                 <svg
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                  className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -115,11 +115,11 @@ export default function ServicesHero() {
                 </svg>
               </Button>
             </Link>
-            <Link href="#services">
+            <Link href="#services" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"
-                className="px-8 py-6 text-lg border-2"
+                className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg border-2"
               >
                 View Our Services
               </Button>

@@ -6,12 +6,12 @@ import Link from "next/link";
 
 export default function CTASection() {
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden">
+    <section className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-orange-900/20 to-gray-900">
         {/* Animated Orbs */}
         <motion.div
-          className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl"
+          className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-orange-500/20 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -23,7 +23,7 @@ export default function CTASection() {
           }}
         />
         <motion.div
-          className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-600/20 rounded-full blur-3xl"
+          className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-orange-600/20 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.5, 0.3, 0.5],
@@ -37,13 +37,13 @@ export default function CTASection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="space-y-6 sm:space-y-8"
         >
           {/* Badge */}
           <motion.div
@@ -53,9 +53,9 @@ export default function CTASection() {
             transition={{ delay: 0.2 }}
             className="inline-block"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 text-orange-300 text-sm font-medium">
+            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 text-orange-300 text-xs sm:text-sm font-medium">
               <svg
-                className="w-4 h-4"
+                className="w-3 h-3 sm:w-4 sm:h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -77,7 +77,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight"
           >
             Ready to Take Your Brand
             <br />
@@ -92,7 +92,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="text-xl  max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto"
           >
             Let&apos;s discuss how our proven strategies can accelerate your
             growth. Book a free consultation and discover your brand&apos;s full
@@ -105,17 +105,17 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-2 sm:pt-4"
           >
-            <Link href="/contact">
+            <Link href="/contact" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="relative group bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 px-8 py-6 text-lg overflow-hidden"
+                className="w-full sm:w-auto relative group bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Book a Free Consultation
                   <svg
-                    className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -132,14 +132,14 @@ export default function CTASection() {
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
               </Button>
             </Link>
-            <Link href="tel:+15551234567">
+            <Link href="tel:+15551234567" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-orange-500/50 hover:border-orange-500 hover:bg-orange-500/10 px-8 py-6 text-lg backdrop-blur-sm"
+                className="w-full sm:w-auto border-2 border-orange-500/50 hover:border-orange-500 hover:bg-orange-500/10 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg backdrop-blur-sm"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4 sm:w-5 sm:h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -162,11 +162,11 @@ export default function CTASection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.7 }}
-            className="flex flex-wrap justify-center gap-6 pt-8 text-sm "
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 pt-6 sm:pt-8 text-xs sm:text-sm"
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <svg
-                className="w-5 h-5 text-orange-500"
+                className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -178,9 +178,9 @@ export default function CTASection() {
               </svg>
               <span>No credit card required</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <svg
-                className="w-5 h-5 text-orange-500"
+                className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -192,9 +192,9 @@ export default function CTASection() {
               </svg>
               <span>30-minute strategy session</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <svg
-                className="w-5 h-5 text-orange-500"
+                className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >

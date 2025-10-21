@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { CircleCheckBig } from "lucide-react";
+import Image from "next/image";
 
 const detailedServices = [
   {
@@ -16,7 +18,7 @@ const detailedServices = [
       "SEO-optimized content that performs",
       "Technical audits and on-page optimization",
     ],
-    image: "/placeholder-seo.jpg",
+    image: "/services/SEO analytics team-rafiki.svg",
     reverse: false,
   },
   {
@@ -30,7 +32,7 @@ const detailedServices = [
       "Transparent reporting and actionable insights",
       "Continuous A/B testing for maximum ROI",
     ],
-    image: "/placeholder-ppc.jpg",
+    image: "/services/Marketing-amico.svg",
     reverse: true,
   },
   {
@@ -44,7 +46,7 @@ const detailedServices = [
       "Performance analytics and growth insights",
       "Influencer collaborations and paid campaigns",
     ],
-    image: "/placeholder-social.jpg",
+    image: "/services/SocialMediaMarketing-cuate.svg",
     reverse: false,
   },
   {
@@ -58,27 +60,27 @@ const detailedServices = [
       "Improved brand authority and thought leadership",
       "Data-driven content strategies for conversions",
     ],
-    image: "/placeholder-content.jpg",
+    image: "/services/Blog-amico.svg",
     reverse: true,
   },
 ];
 
 export default function DetailedServices() {
   return (
-    <section className="py-20 lg:py-28 bg-gray-50 dark:bg-gray-900/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50 dark:bg-gray-900/50">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-16 sm:mb-18 md:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             What We Do Best
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Explore our core services and see how we drive measurable results
           </p>
         </div>
 
         {/* Service Items */}
-        <div className="space-y-32">
+        <div className="space-y-20 sm:space-y-24 md:space-y-28 lg:space-y-32">
           {detailedServices.map((service) => (
             <ServiceItem
               key={service.id}
@@ -108,21 +110,25 @@ function ServiceItem({
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
+      className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center ${
         reverse ? "lg:flex-row-reverse" : ""
       }`}
     >
       {/* Text Content */}
-      <div className={`space-y-6 ${reverse ? "lg:order-2" : ""}`}>
+      <div
+        className={`space-y-4 sm:space-y-5 md:space-y-6 ${
+          reverse ? "lg:order-2" : ""
+        }`}
+      >
         <motion.div
           initial={{ opacity: 0, x: reverse ? 50 : -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
             {service.name}
           </h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
             {service.description}
           </p>
         </motion.div>
@@ -132,7 +138,7 @@ function ServiceItem({
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="space-y-4"
+          className="space-y-3 sm:space-y-4"
         >
           {service.benefits.map((benefit, index) => (
             <motion.li
@@ -140,24 +146,11 @@ function ServiceItem({
               initial={{ opacity: 0, x: reverse ? 30 : -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-              className="flex items-start gap-3"
+              className="flex items-start gap-2 sm:gap-3"
             >
-              <svg
-                className="w-6 h-6 text-orange-600 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="text-base text-gray-700 dark:text-gray-300">
-                {benefit}
-              </span>
+              <CircleCheckBig className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 text-orange-500 mt-0.5 sm:mt-1" />
+
+              <span className="text-sm sm:text-base">{benefit}</span>
             </motion.li>
           ))}
         </motion.ul>
@@ -170,35 +163,15 @@ function ServiceItem({
         transition={{ duration: 0.8, delay: 0.3 }}
         className={`relative ${reverse ? "lg:order-1" : ""}`}
       >
-        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/20 dark:to-orange-800/10 shadow-2xl">
-          {/* Placeholder for image */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center p-8">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-orange-500/20 flex items-center justify-center">
-                <svg
-                  className="w-12 h-12 text-orange-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <p className="text-sm text-muted-foreground font-medium">
-                {service.name} Illustration
-              </p>
-            </div>
-          </div>
+        <div className="relative w-full max-w-md mx-auto aspect-square">
+          <Image
+            src={service.image}
+            alt={service.name}
+            fill
+            className="object-contain drop-shadow-2xl"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
+          />
         </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute -z-10 top-8 -right-8 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl" />
-        <div className="absolute -z-10 -bottom-8 -left-8 w-72 h-72 bg-orange-600/10 rounded-full blur-3xl" />
       </motion.div>
     </motion.div>
   );

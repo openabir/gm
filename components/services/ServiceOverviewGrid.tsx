@@ -207,19 +207,23 @@ export default function ServiceOverviewGrid() {
   };
 
   return (
-    <section id="services" className="py-20 lg:py-28" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="services"
+      className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28"
+      ref={ref}
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-14 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
             Our Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Comprehensive digital marketing solutions tailored to your business
             goals
           </p>
@@ -230,7 +234,7 @@ export default function ServiceOverviewGrid() {
           variants={container}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8"
         >
           {services.map((service) => (
             <motion.div
@@ -238,18 +242,20 @@ export default function ServiceOverviewGrid() {
               variants={item}
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="group relative bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 cursor-pointer"
+              className="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 sm:p-7 md:p-8 border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 cursor-pointer"
             >
               {/* Icon */}
-              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/20 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform duration-300">
+              <div className="mb-4 sm:mb-5 md:mb-6 inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/20 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold mb-3 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                 {service.name}
               </h3>
-              <p className="text-muted-foreground">{service.tagline}</p>
+              <p className="text-sm sm:text-base text-muted-foreground">
+                {service.tagline}
+              </p>
 
               {/* Hover Glow Effect */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 to-orange-600/0 group-hover:from-orange-500/5 group-hover:to-orange-600/5 transition-all duration-300 pointer-events-none" />
