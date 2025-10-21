@@ -377,22 +377,6 @@ export const Footer = () => {
           </motion.div>
         </motion.div>
       </footer>
-
-      {/* Full Width Logo Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="w-full bg-orange-500 pt-10 overflow-hidden flex items-center justify-center"
-      >
-        <Image
-          src="/Vector.svg"
-          width={1200}
-          height={100}
-          alt="GrowthMarg Logo"
-          className="w-full max-w-screen-xl -mb-20"
-        />
-      </motion.div>
     </>
   );
 };

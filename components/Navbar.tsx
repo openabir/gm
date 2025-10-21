@@ -25,11 +25,11 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed left-0 right-0 z-50 backdrop-blur-md"
+        className="fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-md"
       >
-        <div className="relative">
+        <div className="relative max-w-7xl mx-auto overflow-hidden">
           {/* Content */}
-          <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="relative w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16 lg:h-20">
               {/* Left Navigation Links */}
               <div className="hidden lg:flex items-center gap-8">
@@ -124,7 +124,7 @@ export default function Navbar() {
                       size="lg"
                       className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white px-6 py-2.5 text-lg font-medium rounded-full shadow-lg shadow-orange-500/30 border-none"
                     >
-                      Book an intro call
+                      Send us a Message
                     </Button>
                   </Link>
                 </motion.div>
