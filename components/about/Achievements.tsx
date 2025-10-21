@@ -134,20 +134,20 @@ export default function Achievements() {
   return (
     <section
       ref={ref}
-      className="py-20 lg:py-28 bg-gray-50 dark:bg-gray-900/50"
+      className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50 dark:bg-gray-900/50"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16 md:mb-20 space-y-4 sm:space-y-6"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             Our <span className="text-orange-600">Achievements</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Numbers that reflect our commitment to excellence
           </p>
         </motion.div>

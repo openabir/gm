@@ -93,20 +93,20 @@ const approaches = [
 
 export default function OurApproach() {
   return (
-    <section className="py-20 lg:py-28 bg-gray-50 dark:bg-gray-900/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50 dark:bg-gray-900/50">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-16 sm:mb-20 md:mb-24 space-y-4 sm:space-y-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
             How We <span className="text-orange-600">Work</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Our proven process for delivering exceptional results
           </p>
         </div>
 
         {/* Approach Items */}
-        <div className="space-y-32">
+        <div className="space-y-20 sm:space-y-24 md:space-y-28 lg:space-y-32">
           {approaches.map((approach) => (
             <ApproachItem
               key={approach.id}
@@ -136,21 +136,21 @@ function ApproachItem({
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
+      className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center ${
         reverse ? "lg:flex-row-reverse" : ""
       }`}
     >
       {/* Text Content */}
-      <div className={`space-y-6 ${reverse ? "lg:order-2" : ""}`}>
+      <div className={`space-y-6 sm:space-y-8 ${reverse ? "lg:order-2" : ""}`}>
         <motion.div
           initial={{ opacity: 0, x: reverse ? 50 : -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
             {approach.name}
           </h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
             {approach.description}
           </p>
         </motion.div>
@@ -160,7 +160,7 @@ function ApproachItem({
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="space-y-4"
+          className="space-y-3 sm:space-y-4"
         >
           {approach.benefits.map((benefit, index) => (
             <motion.li
@@ -171,7 +171,7 @@ function ApproachItem({
               className="flex items-start gap-3"
             >
               <svg
-                className="w-6 h-6 text-orange-600 flex-shrink-0 mt-0.5"
+                className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600 flex-shrink-0 mt-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -183,7 +183,7 @@ function ApproachItem({
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <span className="text-base text-gray-700 dark:text-gray-300">
+              <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
                 {benefit}
               </span>
             </motion.li>

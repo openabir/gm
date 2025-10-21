@@ -5,22 +5,25 @@ import Image from "next/image";
 
 export default function OurStory() {
   return (
-    <section id="our-story" className="py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section
+      id="our-story"
+      className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28"
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Image Side with Scale Animation */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative order-2 lg:order-1"
           >
             <motion.div
               whileInView={{ scale: [0.95, 1] }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-orange-100 to-orange-50 dark:from-orange-900/20 dark:to-orange-800/10 shadow-2xl"
+              className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-orange-100 to-orange-50 dark:from-orange-900/20 dark:to-orange-800/10 shadow-2xl"
             >
               {/* Placeholder - Replace with actual image */}
               <Image
@@ -31,8 +34,8 @@ export default function OurStory() {
               />
 
               {/* Decorative Elements */}
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl" />
-              <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-orange-600/10 rounded-full blur-3xl" />
+              <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-24 h-24 sm:w-32 sm:h-32 bg-orange-500/20 rounded-full blur-3xl" />
+              <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-32 h-32 sm:w-40 sm:h-40 bg-orange-600/10 rounded-full blur-3xl" />
             </motion.div>
           </motion.div>
 
@@ -42,18 +45,18 @@ export default function OurStory() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-6 sm:space-y-8 order-1 lg:order-2"
           >
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            <div className="space-y-4 sm:space-y-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Our <span className="text-orange-600">Story</span>
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg sm:text-xl text-muted-foreground">
                 From humble beginnings to industry leaders
               </p>
             </div>
 
-            <div className="space-y-5 text-muted-foreground leading-relaxed text-lg">
+            <div className="space-y-4 sm:space-y-5 text-muted-foreground leading-relaxed text-base sm:text-lg">
               <p>
                 <strong className="text-foreground">
                   Born from a passion for creativity and data,
@@ -84,7 +87,7 @@ export default function OurStory() {
             </div>
 
             {/* Timeline */}
-            <div className="grid grid-cols-2 gap-6 pt-8">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-6 sm:pt-8">
               {[
                 { year: "2015", event: "Company Founded" },
                 { year: "2018", event: "100+ Clients" },
@@ -99,10 +102,10 @@ export default function OurStory() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="space-y-1"
                 >
-                  <div className="text-2xl font-bold text-orange-600">
+                  <div className="text-xl sm:text-2xl font-bold text-orange-600">
                     {milestone.year}
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-xs sm:text-sm text-muted-foreground">
                     {milestone.event}
                   </div>
                 </motion.div>

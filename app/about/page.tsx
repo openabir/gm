@@ -1,4 +1,4 @@
-import ResizableNavbar from "@/components/ui/ResizableNavbar";
+import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import AboutHero from "@/components/about/AboutHero";
 import OurStory from "@/components/about/OurStory";
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      <ResizableNavbar />
+      <Navbar />
       <main>
         <AboutHero />
         <OurStory />
