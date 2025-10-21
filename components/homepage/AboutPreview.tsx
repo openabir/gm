@@ -21,24 +21,18 @@ export default function AboutPreview() {
             transition={{ duration: 0.8 }}
             className="relative order-2 lg:order-1"
           >
-            <motion.div
-              whileInView={{ scale: [0.95, 1] }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-orange-100 to-orange-50 dark:from-orange-900/20 dark:to-orange-800/10 shadow-2xl"
-            >
-              {/* Placeholder - Replace with actual image */}
+            <div className="relative w-full aspect-square">
               <Image
-                src="/demo.jpg"
+                src="/Team work-amico.svg"
                 alt="About GrowthMarg - Creative team collaboration"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
+            </div>
 
-              {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-24 h-24 sm:w-32 sm:h-32 bg-orange-500/20 rounded-full blur-3xl" />
-              <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-32 h-32 sm:w-40 sm:h-40 bg-orange-600/10 rounded-full blur-3xl" />
-            </motion.div>
+            {/* Decorative Elements */}
+            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-24 h-24 sm:w-32 sm:h-32 bg-orange-500/20 rounded-full blur-3xl" />
+            <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-32 h-32 sm:w-40 sm:h-40 bg-orange-600/10 rounded-full blur-3xl" />
           </motion.div>
 
           {/* Content Side */}

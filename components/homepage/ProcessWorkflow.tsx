@@ -145,19 +145,14 @@ function ProcessItem({
         className={`relative ${reverse ? "lg:order-1" : ""}`}
       >
         {/* SVG Image - No background, just the image */}
-        <div className="relative w-full">
-          <div className="relative w-full aspect-square max-w-md mx-auto">
-            <Image
-              src={process.image}
-              alt={process.name}
-              fill
-              className="object-contain drop-shadow-2xl"
-              priority={process.id === 1}
-            />
-          </div>
-          {/* Decorative Elements */}
-          <div className="absolute -z-10 top-4 sm:top-8 -right-4 sm:-right-8 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-orange-500/10 rounded-full blur-3xl" />
-          <div className="absolute -z-10 -bottom-4 sm:-bottom-8 -left-4 sm:-left-8 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-orange-600/10 rounded-full blur-3xl" />
+        <div className="relative w-full aspect-square mx-auto">
+          <Image
+            src={process.image}
+            alt={process.name}
+            fill
+            className="object-contain drop-shadow-2xl"
+            priority={process.id === 1}
+          />
         </div>
       </motion.div>
     </motion.div>
