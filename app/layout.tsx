@@ -54,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${bricolageGrotesque.variable} ${borel.variable} font-sans antialiased`}
+        className={`${bricolageGrotesque.variable} ${borel.variable} font-sans antialiased overflow-y-hidden`}
       >
         <ThemeProvider
           attribute="class"
