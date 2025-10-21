@@ -196,27 +196,23 @@ function ApproachItem({
         initial={{ opacity: 0, x: reverse ? -50 : 50 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className={`relative ${reverse ? "lg:order-1" : ""}`}
+        className={`relative overflow-hidden ${reverse ? "lg:order-1" : ""}`}
       >
-        <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/20 dark:to-orange-800/10 shadow-2xl">
+        <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-2xl">
           {/* Icon Display */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center p-8">
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-orange-500/30 to-orange-600/30 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-50/50 to-orange-100/50 dark:from-gray-900/50 dark:to-gray-800/50">
+            <div className="text-center p-4 sm:p-6 md:p-8">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-br from-orange-500/30 to-orange-600/30 flex items-center justify-center">
                 <div className="text-orange-600 dark:text-orange-400">
                   {approach.icon}
                 </div>
               </div>
-              <div className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-200">
                 {approach.name}
               </div>
             </div>
           </div>
         </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute -z-10 top-8 -right-8 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl" />
-        <div className="absolute -z-10 -bottom-8 -left-8 w-72 h-72 bg-orange-600/10 rounded-full blur-3xl" />
       </motion.div>
     </motion.div>
   );

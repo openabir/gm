@@ -32,7 +32,6 @@ export default function AboutPage() {
         <OurStory />
         <OurValues />
         <Team />
-        <OurApproach />
         <Achievements />
         <AboutCTA />
       </main>
