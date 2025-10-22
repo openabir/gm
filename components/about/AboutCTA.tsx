@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { CircleCheck } from "lucide-react";
 
 export default function AboutCTA() {
   return (
@@ -154,48 +155,18 @@ export default function AboutCTA() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.7 }}
-            className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 pt-8 sm:pt-12 text-xs sm:text-sm text-gray-400"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 pt-8 sm:pt-12 text-xs sm:text-sm"
           >
             <div className="flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-orange-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <CircleCheck className="w-5 h-5 text-orange-500" />
               <span>Free strategy session</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-orange-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <CircleCheck className="w-5 h-5 text-orange-500" />
               <span>No long-term contracts</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-orange-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <CircleCheck className="w-5 h-5 text-orange-500" />
               <span>Results guaranteed</span>
             </div>
           </motion.div>

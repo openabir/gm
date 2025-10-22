@@ -56,8 +56,8 @@ export default function AboutHero() {
             className="inline-block"
           >
             <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs sm:text-sm font-medium">
-              <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
-              Building Brands Since 2015
+              <Star className="w-3 h-3 sm:w-4 sm:h-4" />
+              Building Brands Since 2023
             </span>
           </motion.div>
 
