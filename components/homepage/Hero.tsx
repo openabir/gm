@@ -3,15 +3,7 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Sparkles,
-  TrendingUp,
-  Zap,
-  Target,
-  Users,
-  BarChart3,
-} from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp, Zap, Target } from "lucide-react";
 
 export default function Hero() {
   return (

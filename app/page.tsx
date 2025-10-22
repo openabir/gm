@@ -1,12 +1,31 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import Hero from "@/components/homepage/Hero";
-import Why from "@/components/homepage/why";
-import AboutPreview from "@/components/homepage/AboutPreview";
-import ProcessWorkflow from "@/components/homepage/ProcessWorkflow";
-import ToolsTechnologies from "@/components/homepage/ToolsTechnologies";
-import HomeCTA from "@/components/homepage/HomeCTA";
+import Loading from "@/components/ui/Loading";
+
+// Lazy load below-fold components for better performance
+const Why = dynamic(() => import("@/components/homepage/why"), {
+  ssr: true,
+  loading: () => <Loading />,
+});
+const AboutPreview = dynamic(
+  () => import("@/components/homepage/AboutPreview"),
+  { ssr: true, loading: () => <Loading /> }
+);
+const ProcessWorkflow = dynamic(
+  () => import("@/components/homepage/ProcessWorkflow"),
+  { ssr: true, loading: () => <Loading /> }
+);
+const ToolsTechnologies = dynamic(
+  () => import("@/components/homepage/ToolsTechnologies"),
+  { ssr: true, loading: () => <Loading /> }
+);
+const HomeCTA = dynamic(() => import("@/components/homepage/HomeCTA"), {
+  ssr: true,
+  loading: () => <Loading />,
+});
 
 export const metadata: Metadata = {
   title: "GrowthMarg | AI-Driven Digital Marketing Agency in Tripura",

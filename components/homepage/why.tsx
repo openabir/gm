@@ -316,7 +316,7 @@ export default function Why() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="group text-center p-6 sm:p-8 rounded-2xl hover:bg-orange-50/50 dark:hover:bg-orange-950/10 transition-colors duration-300"
+              className="group text-center p-6 sm:p-8 rounded-2xl"
             >
               {/* Icon */}
               <motion.div
