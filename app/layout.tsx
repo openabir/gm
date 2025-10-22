@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { LenisProvider } from "@/components/ui/lenis-provider";
 import { Borel, Bricolage_Grotesque } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const borel = Borel({
@@ -62,7 +63,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <LenisProvider>{children}</LenisProvider>
+          <LenisProvider>
+            {children}
+            <Analytics />
+          </LenisProvider>
         </ThemeProvider>
       </body>
     </html>
