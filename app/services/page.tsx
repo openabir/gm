@@ -1,11 +1,27 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Footer } from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ServicesHero from "@/components/services/ServicesHero";
-import ServiceOverviewGrid from "@/components/services/ServiceOverviewGrid";
-import DetailedServices from "@/components/services/DetailedServices";
-import Testimonials from "@/components/services/Testimonials";
-import CTASection from "@/components/services/CTASection";
+import Loading from "@/components/ui/Loading";
+
+// Lazy load below-fold components for better performance
+const ServiceOverviewGrid = dynamic(
+  () => import("@/components/services/ServiceOverviewGrid"),
+  { ssr: true, loading: () => <Loading /> }
+);
+const DetailedServices = dynamic(
+  () => import("@/components/services/DetailedServices"),
+  { ssr: true, loading: () => <Loading /> }
+);
+const Testimonials = dynamic(
+  () => import("@/components/services/Testimonials"),
+  { ssr: true, loading: () => <Loading /> }
+);
+const CTASection = dynamic(() => import("@/components/services/CTASection"), {
+  ssr: true,
+  loading: () => <Loading />,
+});
 
 export const metadata: Metadata = {
   title: "Digital Marketing Services | SEO, PPC, Social Media & More",
