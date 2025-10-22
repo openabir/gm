@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
         pathname: "/collection/**",
       },
     ],
+    minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
   },
 
   // Compiler optimizations
@@ -25,8 +26,23 @@ const nextConfig: NextConfig = {
 
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ["lucide-react", "motion/react"],
+    optimizePackageImports: [
+      "lucide-react",
+      "motion/react",
+      "framer-motion",
+      "react-icons",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-hover-card",
+      "@radix-ui/react-slot",
+    ],
   },
+
+  // Enable compression
+  compress: true,
+
+  // Production source maps (disable for smaller builds)
+  productionBrowserSourceMaps: false,
 };
 
 export default nextConfig;
