@@ -80,7 +80,7 @@ export default function ContactForm() {
       if (data.success) {
         setSubmitStatus({
           type: "success",
-          message: "Thank you! Your message has been sent successfully.",
+          message: "Thank you! Your message has been sent successfully. we will contact you shortly.",
         });
         setFormData({
           name: "",
