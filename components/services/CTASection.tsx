@@ -77,7 +77,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight"
           >
             Ready to Take Your Brand
             <br />
@@ -154,58 +154,6 @@ export default function CTASection() {
                 Call Us Now
               </Button>
             </Link>
-          </motion.div>
-
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.7 }}
-            className="flex flex-wrap justify-center gap-4 sm:gap-6 pt-6 sm:pt-8 text-xs sm:text-sm"
-          >
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <svg
-                className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span>No credit card required</span>
-            </div>
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <svg
-                className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span>30-minute strategy session</span>
-            </div>
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <svg
-                className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span>Actionable insights guaranteed</span>
-            </div>
           </motion.div>
         </motion.div>
       </div>

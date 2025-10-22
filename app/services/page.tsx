@@ -14,10 +14,6 @@ const DetailedServices = dynamic(
   () => import("@/components/services/DetailedServices"),
   { ssr: true, loading: () => <Loading /> }
 );
-const Testimonials = dynamic(
-  () => import("@/components/services/Testimonials"),
-  { ssr: true, loading: () => <Loading /> }
-);
 const CTASection = dynamic(() => import("@/components/services/CTASection"), {
   ssr: true,
   loading: () => <Loading />,
@@ -45,7 +41,6 @@ export default function ServicesPage() {
         <ServicesHero />
         <ServiceOverviewGrid />
         <DetailedServices />
-        <Testimonials />
         <CTASection />
       </main>
       <Footer />
