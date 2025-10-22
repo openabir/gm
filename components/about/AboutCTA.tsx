@@ -82,7 +82,7 @@ export default function AboutCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold  leading-tight"
           >
             Let&apos;s Build Something
             <br />
@@ -97,7 +97,7 @@ export default function AboutCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl  max-w-2xl mx-auto leading-relaxed"
           >
             Ready to transform your brand&apos;s digital presence? Let&apos;s
             start a conversation about your goals and how we can help you
@@ -141,7 +141,7 @@ export default function AboutCTA() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-orange-500/50 hover:border-orange-500 text-white hover:bg-orange-500/10 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto"
+                className="border-2 border-orange-500/50 hover:border-orange-500 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto"
               >
                 Book a Free Consultation
               </Button>

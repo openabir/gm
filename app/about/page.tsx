@@ -1,13 +1,27 @@
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import AboutHero from "@/components/about/AboutHero";
-import OurStory from "@/components/about/OurStory";
-import OurValues from "@/components/about/OurValues";
-import Team from "@/components/about/Team";
-import OurApproach from "@/components/about/OurApproach";
-import Achievements from "@/components/about/Achievements";
-import AboutCTA from "@/components/about/AboutCTA";
-import { Metadata } from "next";
+import Loading from "@/components/ui/Loading";
+
+// Lazy load below-fold components for better performance
+const OurStory = dynamic(() => import("@/components/about/OurStory"), {
+  ssr: true,
+  loading: () => <Loading />,
+});
+const OurValues = dynamic(() => import("@/components/about/OurValues"), {
+  ssr: true,
+  loading: () => <Loading />,
+});
+const Team = dynamic(() => import("@/components/about/Team"), {
+  ssr: true,
+  loading: () => <Loading />,
+});
+const AboutCTA = dynamic(() => import("@/components/about/AboutCTA"), {
+  ssr: true,
+  loading: () => <Loading />,
+});
 
 export const metadata: Metadata = {
   title: "About Us | GrowthMarg - Our Story, Mission & Team",
@@ -32,7 +46,6 @@ export default function AboutPage() {
         <OurStory />
         <OurValues />
         <Team />
-        <Achievements />
         <AboutCTA />
       </main>
       <Footer />
